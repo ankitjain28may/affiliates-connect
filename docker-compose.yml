@@ -1,0 +1,51 @@
+version: "2"
+
+services:
+
+  php:
+    container_name: ${PROJECT_NAME}
+    image: dbjpanda/drupal-on-docker-php
+    volumes:
+      - ./code:/var/www/${PROJECT_NAME}:cached
+    working_dir: /var/www/${PROJECT_NAME}
+    networks:
+      - drupal
+    restart: always
+
+  nginx:
+    container_name: ${PROJECT_NAME}.nginx
+    image: dbjpanda/drupal-on-docker-nginx
+    volumes:
+      - ./code:/var/www/${PROJECT_NAME}:cached
+    working_dir: /var/www/${PROJECT_NAME}
+    environment:
+      PROJECT_NAME: ${PROJECT_NAME}
+      DOMAIN_NAME: ${DOMAIN_NAME}
+      DRUPAL_VERSION: ${DRUPAL_VERSION}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASS: ${MYSQL_PASS}
+      MYSQL_HOST_NAME: ${PROJECT_NAME}.mariadb
+      MYSQL_PORT: ${MYSQL_PORT}
+    labels:
+      - "traefik.frontend.rule=Host:${DOMAIN_NAME}"
+    networks:
+      - drupal
+    restart: always
+
+  mariadb:
+    container_name: ${PROJECT_NAME}.mariadb
+    image: dbjpanda/drupal-on-docker-mariadb
+    volumes:
+      - ./code/db-dump/drupal.sql:/docker-entrypoint-initdb.d/dump.sql
+    environment:
+       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+       MYSQL_DATABASE: ${MYSQL_DATABASE}
+    networks:
+      - drupal
+    restart: always
+
+networks:
+  drupal:
+    external:
+     name: ${NETWORK_NAME}
