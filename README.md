@@ -1,4 +1,3 @@
-[![Build Status](https://travis-ci.com/dbjpanda/drupal-on-docker.svg?token=55CADUHzgmryMHLpbyAs&branch=master)](https://travis-ci.com/dbjpanda/drupal-on-docker)
 
 Optional steps but recommended
 ----------------------
@@ -12,7 +11,7 @@ Installation of Drupal on development server
 ----------------------
 Step 1
 ``````
-git clone https://github.com/dbjpanda/drupal-on-docker.git
+git clone git@github.com:dbjpanda/affiliates-connect.git
 ```````
 Step 2 (optional)
 ````````
