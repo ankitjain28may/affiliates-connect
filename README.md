@@ -17,6 +17,7 @@ Step 2 (optional)
 ````````
 Modify .env file as per your requirements
 ``````````````
+
 Step 3
 ````````
 docker-compose up -d
@@ -24,27 +25,25 @@ docker-compose up -d
 
 Step 4
 ````````
-docker exec -it PROJECT_NAME composer install
+docker exec -it affiliates_connect composer install
 ````````
 
 Step 5 (Import configuration)
 ````````
-docker exec -it PROJECT_NAME vendor/bin/drupal ci
+docker exec -it affiliates_connect vendor/bin/drupal ci
 ````````
 
 Step 6 (Rebuild Cache)
 ````````
-docker exec -it PROJECT_NAME vendor/bin/drupal cr
+docker exec -it affiliates_connect vendor/bin/drupal cr
+````````
+
+Step-7
+````````
+Browse the Drupal site using ac.localhost
 ````````
 
 
-Installation of Drupal on production server
----------------------------
-Here you need to override the default environment variables for production server. You can achieve it by below command while deploying.
-
-````````
-SITE_NAME=example.com MYSQL_USER=someone MYSQL_PASS=yoursecrets docker-compose up -d
-``````````````
 
 Login in Drupal using below credentials
 ----------------------
