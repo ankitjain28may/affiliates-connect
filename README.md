@@ -11,7 +11,7 @@ Installation of Drupal on development server
 ----------------------
 Step 1
 ``````
-git clone git@github.com:dbjpanda/affiliates-connect.git
+git clone https://github.com/ankitjain28may/affiliates-connect.git
 ```````
 Step 2 (optional)
 ````````
