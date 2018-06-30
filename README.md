@@ -1,5 +1,3 @@
-[![Build Status](https://travis-ci.com/dbjpanda/drupal-on-docker.svg?token=55CADUHzgmryMHLpbyAs&branch=master)](https://travis-ci.com/dbjpanda/drupal-on-docker)
-
 Optional steps but recommended
 ----------------------
 Install Traefik to access your Drupal site using their "domain name" instead of "IP:port" . This is an one time setup and use with all projects. This is usefull for both Drupal and Non-Drupal projects.
@@ -53,10 +51,4 @@ username - admin
 
 password - aaaaaa
 
-Set up Advance feeds crawler config
-----------------------
-1. Go to configuration page, Under 'System' block, click Advance Crawler Settings
-2. Enter the Nodejs Server host -
-  If you are running on your localhost, then enter local ip like `192.168.*.*`
-  localhost wont work as docker will search for the address inside the container.
-3. Enter the Nodejs server port
+
