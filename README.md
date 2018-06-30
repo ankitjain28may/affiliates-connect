@@ -14,7 +14,7 @@ git clone https://github.com/ankitjain28may/affiliates-connect.git
 ```````
 Step 2 (optional)
 ````````
-Modify .env file as per your requirements
+Rename .env.example to .env and Modify .env file as per your requirements
 ``````````````
 Step 3
 ````````
