@@ -12,7 +12,7 @@ Installation of Drupal on development server
 ----------------------
 Step 1
 ``````
-git clone https://github.com/dbjpanda/drupal-on-docker.git
+git clone https://github.com/ankitjain28may/affiliates-connect.git
 ```````
 Step 2 (optional)
 ````````
@@ -50,12 +50,13 @@ SITE_NAME=example.com MYSQL_USER=someone MYSQL_PASS=yoursecrets docker-compose u
 Login in Drupal using below credentials
 ----------------------
 username - admin
+
 password - aaaaaa
 
 Set up Advance feeds crawler config
 ----------------------
 1. Go to configuration page, Under 'System' block, click Advance Crawler Settings
 2. Enter the Nodejs Server host -
-  If you are running on your localhost, then enter local ip like 192.168.*.*
+  If you are running on your localhost, then enter local ip like `192.168.*.*`
   localhost wont work as docker will search for the address inside the container.
 3. Enter the Nodejs server port
