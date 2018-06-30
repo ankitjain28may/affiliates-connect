@@ -14,9 +14,11 @@ services:
 
   nginx:
     container_name: ${PROJECT_NAME}.nginx
-    image: dbjpanda/drupal-on-docker-nginx
+    build: ./docker/nginx/
+    image: nginx
     volumes:
       - ./code:/var/www/${PROJECT_NAME}:cached
+      - ./node:/var/www/node-scraper:cached
     working_dir: /var/www/${PROJECT_NAME}
     environment:
       PROJECT_NAME: ${PROJECT_NAME}
@@ -28,7 +30,24 @@ services:
       MYSQL_HOST_NAME: ${PROJECT_NAME}.mariadb
       MYSQL_PORT: ${MYSQL_PORT}
     labels:
-      - "traefik.frontend.rule=Host:${DOMAIN_NAME}"
+      - "traefik.frontend.rule=Host:${DOMAIN_NAME}, node.localhost"
+    networks:
+      - drupal
+    restart: always
+
+  node:
+    container_name: ${PROJECT_NAME}.node
+    build: ./docker/nodejs/
+    image: node-scraper
+    volumes:
+      - ./node:/var/www/node-scraper:cached
+    working_dir: /var/www/node-scraper
+    environment:
+      NODE_ENV: ${NODE_ENV}
+      PORT: ${PORT}
+      PROCESS_TYPE: ${PROCESS_TYPE}
+      NIGHTMARE_SHOW: ${NIGHTMARE_SHOW}
+      NIGHTMARE_IMAGES: ${NIGHTMARE_IMAGES}
     networks:
       - drupal
     restart: always

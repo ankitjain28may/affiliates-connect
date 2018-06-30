@@ -67,6 +67,42 @@ mappings:
       value: product_name
     unique:
       value: '1'
+
+  -
+    target: product_id
+    map:
+      value: product_name
+
+  -
+    target: currency
+    map:
+      value: product_name
+
+  -
+    target: maximum_retail_price
+    map:
+      value: product_name
+
+  -
+    target: vendor_selling_price
+    map:
+      value: product_name
+
+  -
+    target: vendor_special_price
+    map:
+      value: product_name
+
+  -
+    target: product_brand
+    map:
+      value: product_name
+
+  -
+    target: seller_name
+    map:
+      value: product_name
+
   -
     target: product_url
     map:
