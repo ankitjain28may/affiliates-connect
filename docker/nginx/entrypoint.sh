@@ -19,7 +19,4 @@ MYSQL_PASS=$MYSQL_PASS
 MYSQL_HOST_NAME=$MYSQL_HOST_NAME
 MYSQL_PORT=$MYSQL_PORT
 EOF
-
-cp /etc/nginx/conf.d/nodejs.conf /etc/nginx/sites-enabled/node.localhost
-
 exec "$@"

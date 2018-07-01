@@ -37,9 +37,6 @@ RUN mkdir -p /var/www/node-scraper
 COPY entrypoint.sh /
 COPY ./scraper/ /var/www/node-scraper
 
-
-
-
 # Define working directory
 WORKDIR /var/www/node-scraper
 
